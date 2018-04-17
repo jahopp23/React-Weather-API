@@ -21,13 +21,13 @@ class App extends Component {
         error: undefined
     }
 
-  //Server Gets API Data through Async/Await  
+  //Server Gets API Data through Async/Await  //getWeather attached for Form 
   getWeather = async (e) => {
       e.preventDefault();
 
       const city = e.target.elements.city.value;
       const country = e.target.elements.country.value;
-      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=UTF-8
+      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric
       `);
       const data = await api_call.json();
       console.log(data);
@@ -53,7 +53,7 @@ class App extends Component {
           <h1 className="App-title">React Weather API</h1>
         </header>
         <p className="App-intro">
-          []
+        
         </p>
 
         <Titles />
@@ -67,6 +67,7 @@ class App extends Component {
                 error={this.state.error}                                
                 
                 />
+               <p className="subtitles">Built by J.A.H. 2018</p>
       </div>
     );
   }
