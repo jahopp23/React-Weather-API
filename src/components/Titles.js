@@ -1,14 +1,38 @@
 import React from "react";
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+  } from 'reactstrap';
 
-class Titles extends React.Component {
-    render() {
-        return (
+
+export default class Titles extends React.Component {
+        constructor(props) {
+          super(props);
+      
+          this.toggle = this.toggle.bind(this);
+          this.state = {
+            isOpen: false
+          };
+        }
+        toggle() {
+          this.setState({
+            isOpen: !this.state.isOpen
+          });
+        }
+        render() {
+          return (
             <div>
-                
-                <h3>Find out temperature, conditions, and more...</h3>
+              <Navbar color="light" light expand="md">
+                <NavbarBrand href="/">What'sTheWeather?</NavbarBrand>
+              
+        
+              </Navbar>
             </div>
-        );
-    }
-};
-
-export default Titles;
+          );
+        }
+      }

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Titles from './components/Titles';
-import Form from './components/Form';
+import BootstrapForm from './components/Form';
 import Weather from './components/Weather';
+import Footer from './components/Footer';
 
 
 const API_KEY = "80618738d5f2464e5f6498cfae94b325";
@@ -30,6 +31,8 @@ class App extends Component {
       const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric
       `);
       const data = await api_call.json();
+      
+      if(city && country){
       console.log(data);
       this.setState({
           temperature: data.main.temp,
@@ -38,10 +41,21 @@ class App extends Component {
           humidity: data.main.humidity,
           description: data.weather[0].description,
           error: ""
-      })
-  }
+      });
+    } else {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: "Please enter the proper values."
+    });
 
-
+    }
+}
+    
+    
   render() {
 
 
@@ -57,7 +71,7 @@ class App extends Component {
         </p>
 
         <Titles />
-        <Form getWeather={this.getWeather}/>
+        <BootstrapForm getWeather={this.getWeather}/>
         <Weather 
                 temperature ={this.state.temperature}
                 city={this.state.city}
@@ -67,7 +81,8 @@ class App extends Component {
                 error={this.state.error}                                
                 
                 />
-               <p className="subtitles">Built by J.A.H. 2018</p>
+        <Footer />
+        
       </div>
     );
   }

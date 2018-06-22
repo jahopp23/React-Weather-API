@@ -7,11 +7,30 @@
   height: 80px;
 }
 
+Form .form{
+  margin: 1.00rem;
+}
+
+.form label{
+  margin: 1.00rem;
+}
+
+.form Button {
+  margin:1.00rem;
+}
+
+.weather-container p{
+  margin-top: 3.00rem;
+}
+.navbar-brand {
+ color: black;
+}
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #eee;
+  height: 100px;
   padding: 20px;
   color: white;
+  display: none;
 }
 
 .App-title {
@@ -24,7 +43,27 @@
 
 .subtitles {
   font-size: small;
+  margin-top: 20.00em;
+  height:50px;
+  width: 100%;
+  background-color: #eee;
 }
+
+.weather-container{
+  width:100%;
+  height: 300px;
+  background-repeat: no-repeat;
+
+}
+
+.footer {
+  position:relative;
+  top:12.00rem;
+}
+
+
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

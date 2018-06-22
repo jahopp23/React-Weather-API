@@ -1,15 +1,17 @@
-import React from "react";
+import React from 'react';
+import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-class Form extends React.Component {
-    render() {
-        return(
-            <form onSubmit={this.props.getWeather}>
-                <input type="text" name="city" placeholder="City..."/>
-                <input type="text" name="country" placeholder="Country..."/>
-                <button>Get Weather</button>
-                </form>
-        );
-    }
-};
-
-export default Form;
+const BootstrapForm = props => (
+    <Form inline className ="form" onSubmit={ props.getWeather }>
+    <FormGroup>
+        <Label for="city">City Name</Label>
+        <Input type="city" name="city" id="City" placeholder="U.S. or Int'l." />
+        <Label for="country">Country or State</Label>
+        <Input type="country" name="country" id="Country" placeholder="U.S. or Int'l" />
+    {/* <input type="text" name="city" placeholder="City Name (U.S. or International)" />
+    <input type="text" name="country" placeholder="State or Country Name"/> */}
+    <Button>Get Weather</Button>
+    </FormGroup>
+    </Form>
+); 
+export default BootstrapForm;
